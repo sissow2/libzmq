@@ -233,7 +233,7 @@ void zmq::session_base_t::clean_pipes ()
     _pipe->flush ();
 
     //  Remove any half-read message from the in pipe.
-    while (_incomplete_in) {
+    while (_incomplete_in && !_pipe->is_terminating ()) {
         msg_t msg;
         int rc = msg.init ();
         errno_assert (rc == 0);

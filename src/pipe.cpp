@@ -579,3 +579,9 @@ void zmq::pipe_t::process_pipe_peer_stats (uint64_t queue_count_,
     send_pipe_stats_publish (socket_base_, queue_count_,
                              _msgs_written - _peers_msgs_read, endpoint_pair_);
 }
+
+bool zmq::pipe_t::is_terminating () const
+{
+    return _state != active && _state != delimiter_received
+           && _state != waiting_for_delimiter;
+}

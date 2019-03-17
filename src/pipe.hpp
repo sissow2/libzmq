@@ -147,6 +147,8 @@ class pipe_t : public object_t,
 
     void send_stats_to_peer (own_t *socket_base_);
 
+    bool is_terminating () const;
+
   private:
     //  Type of the underlying lock-free pipe.
     typedef ypipe_base_t<msg_t> upipe_t;
