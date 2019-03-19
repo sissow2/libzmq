@@ -72,6 +72,7 @@ set(tests
   test_socket_null
   test_reconnect_ivl
   test_mock_pub_sub
+  test_disconnect_while_terminating
 )
 
 if(ZMQ_HAVE_CURVE)
